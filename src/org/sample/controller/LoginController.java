@@ -1,7 +1,7 @@
 package org.sample.controller;
 
-import org.sample.model.UserDetails;
-import org.sample.service.ValidateCredentials;
+import org.sample.model.UserCredentials;
+import org.sample.validate.ValidateCredentials;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,13 +19,13 @@ public class LoginController {
 //		UserDetails userdetails = new UserDetails();
 //		userdetails.setPassword("enter pasword");
 //		userdetails.setUserId("enter userid");
-		model.addAttribute("userdetails", new UserDetails());
+		model.addAttribute("userdetails", new UserCredentials());
 		
 		return "login";
 	}
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST)
-	public String afterLogin(@ModelAttribute("userdetails") UserDetails userdetails)
+	public String afterLogin(@ModelAttribute("userdetails") UserCredentials userdetails)
 	{
 		System.out.println("userid is "+userdetails.getUserId());
 		//model.addAttribute("loging", "login page");
