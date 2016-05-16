@@ -10,6 +10,7 @@ import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
+
 @Repository
 public class StudentDAOImpl implements StudentDAO {
 
@@ -42,6 +43,7 @@ public class StudentDAOImpl implements StudentDAO {
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public List<StudentDetails> listStudents() {
 		 Session session = this.sessionFactory.getCurrentSession();
 	        List<StudentDetails> studentsList = session.createQuery("from StudentDetails").list();
@@ -65,11 +67,11 @@ public class StudentDAOImpl implements StudentDAO {
 		// TODO Auto-generated method stub
 
 		 Session session = this.sessionFactory.getCurrentSession();
-	        StudentDetails p = (StudentDetails) session.load(StudentDetails.class, new Integer(id));
-	        if(null != p){
-	            session.delete(p);
+	        StudentDetails student = (StudentDetails) session.load(StudentDetails.class, new Integer(id));
+	        if(null != student){
+	            session.delete(student);
 	        }
-	        logger.info("student deleted successfully, student details="+p);
+	        logger.info("student deleted successfully, student details="+student);
 	}
 
 }

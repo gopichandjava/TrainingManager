@@ -11,15 +11,16 @@ public class StudentDetails {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int userId;
+	private String lastname;
+	private String firstname;
+	private String course;
+	
 	public int getUserId() {
 		return userId;
 	}
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
-	private String lastname;
-	private String firstname;
-	private String course;
 	
 	
 	public String getLastname() {

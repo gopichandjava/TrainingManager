@@ -49,12 +49,6 @@ public class LoginController {
 		return "home";
 	}
 	
-	@RequestMapping(value="/addstudent")
-	public String addstudent(Model model)
-	{
-		//model.addAttribute("loging", "login page");
-		
-		return "addstudent";
-	}
+	
 	
 }

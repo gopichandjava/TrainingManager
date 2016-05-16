@@ -22,25 +22,26 @@
  
 <c:url var="addAction" value="/student/add" ></c:url>
  
-<form:form action="${addAction}" commandName="student">
+<form:form action="/TrainingManager/student/add" commandName="student">
 <table>
-  
+
     <tr>
         <td>
             <form:label path="userId">
-                <spring:message text="ID"/>
+                <spring:message text="userId"/>
             </form:label>
         </td>
         <td>
             <form:input path="userId" readonly="true" size="8"  disabled="true" />
             <form:hidden path="userId" />
+            
         </td> 
     </tr>
     
     <tr>
         <td>
             <form:label path="lastname">
-                <spring:message text="lastame"/>
+                <spring:message text="lastname"/>
             </form:label>
         </td>
         <td>
@@ -69,11 +70,11 @@
     </tr>
     <tr>
         <td colspan="3">
-            <c:if test="${!empty person.name}">
+            <c:if test="${!empty student.lastname}">
                 <input type="submit"
                     value="<spring:message text="Edit Student"/>" />
             </c:if>
-            <c:if test="${empty person.name}">
+            <c:if test="${empty student.lastname}">
                 <input type="submit"
                     value="<spring:message text="Add Student"/>" />
             </c:if>

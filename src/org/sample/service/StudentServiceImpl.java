@@ -25,6 +25,7 @@ public class StudentServiceImpl implements StudentService{
 	}
 
 	@Override
+	@Transactional
 	public void updateStudent(StudentDetails s) {
 		// TODO Auto-generated method stub
 		this.studentDAO.updateStudent(s);
@@ -32,6 +33,7 @@ public class StudentServiceImpl implements StudentService{
 	}
 
 	@Override
+	@Transactional
 	public List<StudentDetails> listStudents() {
 		// TODO Auto-generated method stub
 		return this.studentDAO.listStudents();
@@ -39,12 +41,14 @@ public class StudentServiceImpl implements StudentService{
 	}
 
 	@Override
+	@Transactional
 	public StudentDetails getStudentById(int id) {
 		// TODO Auto-generated method stub
 		 return this.studentDAO.getStudentById(id);
 	}
 
 	@Override
+	@Transactional
 	public void removeStudent(int id) {
 		// TODO Auto-generated method stub
 		 this.studentDAO.removeStudent(id);

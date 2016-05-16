@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
+@SessionAttributes("student")
 public class StudentController {
 	
 	 private StudentService studentService;
@@ -58,5 +60,13 @@ public class StudentController {
 	        model.addAttribute("listStudents", this.studentService.listStudents());
 	        return "addstudent";
 	    }
+	    
+	    @RequestMapping(value="/addstudent")
+		public String addstudent(Model model)
+		{
+			model.addAttribute("student", new StudentDetails());
+			
+			return "addstudent";
+		}
 
 }
