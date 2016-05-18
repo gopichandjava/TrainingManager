@@ -18,5 +18,15 @@
     </tr>
 </table>  
 </form:form>
+
+<form:form method="GET" action="/TrainingManager/viewallstudents">
+<table>
+    <tr>
+    <td>
+    <input type="submit" value="View all students"/>
+    </td>
+    </tr>
+</table>  
+</form:form>
 </body>
 </html>

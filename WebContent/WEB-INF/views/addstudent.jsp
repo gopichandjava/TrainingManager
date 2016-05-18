@@ -40,22 +40,22 @@
     
     <tr>
         <td>
-            <form:label path="lastname">
-                <spring:message text="lastname"/>
-            </form:label>
-        </td>
-        <td>
-            <form:input path="lastname" />
-        </td> 
-    </tr>
-    <tr>
-        <td>
             <form:label path="firstname">
                 <spring:message text="firstname"/>
             </form:label>
         </td>
         <td>
             <form:input path="firstname" />
+        </td> 
+    </tr>
+    <tr>
+        <td>
+            <form:label path="lastname">
+                <spring:message text="lastname"/>
+            </form:label>
+        </td>
+        <td>
+            <form:input path="lastname" />
         </td>
     </tr>
     <tr>
@@ -82,6 +82,29 @@
     </tr>
 </table>  
 </form:form>
+<form:form action="/TrainingManager/selectcourse" method="POST" commandName="student">
+        <table>
+            <tr>
+                <td>Please select:</td>
+                <td><form:select path="SelectedCourse">
+                   <form:option value="" label="select course" />
+                 <form:options items="${courselist}" />
+                </form:select>
+                                </td>
+                <td><form:errors path="SelectedCourse" cssStyle="color: #ff0000;" /></td>
+            </tr>
+            
+            
+            
+            
+            <tr>
+                <td><input type="submit" name="submit" value="Submit"></td>
+            </tr>
+            <tr>
+        </table>
+    </form:form>
+
+
 <br>
 <h3>Students List</h3>
 <c:if test="${!empty listStudents}">
@@ -106,5 +129,6 @@
     </c:forEach>
     </table>
 </c:if>
+
 </body>
 </html>

@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 @Entity
 public class StudentDetails {
@@ -15,6 +16,15 @@ public class StudentDetails {
 	private String firstname;
 	private String course;
 	
+	@Transient
+	private String SelectedCourse;
+	
+	public String getSelectedCourse() {
+		return SelectedCourse;
+	}
+	public void setSelectedCourse(String selectedCourse) {
+		SelectedCourse = selectedCourse;
+	}
 	public int getUserId() {
 		return userId;
 	}

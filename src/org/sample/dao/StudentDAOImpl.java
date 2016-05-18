@@ -3,8 +3,12 @@ package org.sample.dao;
 
 import org.sample.model.StudentDetails;
 
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
@@ -48,7 +52,7 @@ public class StudentDAOImpl implements StudentDAO {
 		 Session session = this.sessionFactory.getCurrentSession();
 	        List<StudentDetails> studentsList = session.createQuery("from StudentDetails").list();
 	        for(StudentDetails p : studentsList){
-	            logger.info("Person List::"+p);
+	            logger.info("Student List::"+p);
 	        }
 	        return studentsList;
 	}
@@ -73,5 +77,24 @@ public class StudentDAOImpl implements StudentDAO {
 	        }
 	        logger.info("student deleted successfully, student details="+student);
 	}
+
+
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<StudentDetails> selectStudentsByCourse(String selectedCourse) {
+		// TODO Auto-generated method stub
+		 Session session = this.sessionFactory.getCurrentSession();
+	        Query query = (Query) session.createQuery("from StudentDetails where course = :selectedcourse");
+	        query.setParameter("selectedcourse", selectedCourse);
+	        
+	        List<StudentDetails> studentsList = query.list();
+	        for(StudentDetails p : studentsList){
+	            logger.info("Student List::"+p);
+	        }
+	        return studentsList;
+
+		
+	}
+
 
 }

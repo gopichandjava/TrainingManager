@@ -11,6 +11,7 @@ public interface StudentService {
 	    public List<StudentDetails> listStudents();
 	    public StudentDetails getStudentById(int id);
 	    public void removeStudent(int id);
+		public List<StudentDetails> selectStudentsByCourse(String selectedCourse);
 	     
 	
 }

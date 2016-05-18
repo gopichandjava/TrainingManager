@@ -54,4 +54,12 @@ public class StudentServiceImpl implements StudentService{
 		 this.studentDAO.removeStudent(id);
 	}
 
+
+	@Override
+	@Transactional
+	public List<StudentDetails> selectStudentsByCourse(String selectedCourse) {
+		// TODO Auto-generated method stub
+		return this.studentDAO.selectStudentsByCourse(selectedCourse);
+	}
+
 }
